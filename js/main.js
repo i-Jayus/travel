@@ -48,6 +48,38 @@ const locations = [
         description: '阿联酋最繁华的城市，棕榈岛与哈利法塔',
         date: '2024.12',
         link: 'uae-2024.html'
+    },
+    {
+        id: 'chengdu',
+        name: '成都',
+        nameEn: 'Chengdu',
+        lat: 30.5728,
+        lng: 104.0668,
+        type: 'transit',
+        description: '四川航空经停站',
+        date: '2025.05'
+    },
+    {
+        id: 'sydney',
+        name: '悉尼',
+        nameEn: 'Sydney',
+        lat: -33.8688,
+        lng: 151.2093,
+        type: 'destination',
+        description: '澳大利亚最大城市，歌剧院与海港大桥',
+        date: '2025.05',
+        link: 'australia-2025.html'
+    },
+    {
+        id: 'gold-coast',
+        name: '黄金海岸',
+        nameEn: 'Gold Coast',
+        lat: -28.0167,
+        lng: 153.4000,
+        type: 'destination',
+        description: '冲浪者天堂与可伦宾动物园',
+        date: '2025.05',
+        link: 'australia-2025.html'
     }
 ];
 
@@ -88,6 +120,34 @@ const routes = [
         to: 'shenzhen',
         type: 'return',
         description: '多哈 → 深圳（返程）'
+    },
+    {
+        id: 'outbound-3',
+        from: 'shenzhen',
+        to: 'chengdu',
+        type: 'outbound',
+        description: '深圳 → 成都（经停）'
+    },
+    {
+        id: 'outbound-4',
+        from: 'chengdu',
+        to: 'sydney',
+        type: 'outbound',
+        description: '成都 → 悉尼（去程）'
+    },
+    {
+        id: 'domestic-2',
+        from: 'sydney',
+        to: 'gold-coast',
+        type: 'domestic',
+        description: '悉尼 ↔ 黄金海岸（境内飞行）'
+    },
+    {
+        id: 'return-3',
+        from: 'sydney',
+        to: 'shenzhen',
+        type: 'return',
+        description: '悉尼 → 深圳（返程）'
     }
 ];
 
