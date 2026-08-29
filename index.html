@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的旅行日记 | Travel Journal</title>
+    <meta name="description" content="记录每一次旅行的足迹与故事">
+
+    <!-- Leaflet 地图库 -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ===== 导航栏 ===== -->
+    <nav class="navbar">
+        <div class="logo">
+            <span class="dot"></span>
+            <span>旅行日记</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">首页</a></li>
+            <li><a href="#travel-list">旅行记录</a></li>
+            <li><a href="#about">关于</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== 全屏世界地图 ===== -->
+    <section class="hero-map">
+        <div id="world-map"></div>
+
+        <!-- 地图中央标题 -->
+        <div class="hero-overlay">
+            <h1>世 界 那 么 大</h1>
+            <p>用脚步丈量地球，用文字记录时光</p>
+        </div>
+
+        <!-- 图例 -->
+        <div class="map-legend">
+            <h4>地图图例</h4>
+            <div class="legend-item">
+                <span class="legend-dot" style="background:#e74c3c;"></span>
+                <span>出发地</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-dot" style="background:#3498db;"></span>
+                <span>中转城市</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-dot" style="background:#d4a853;"></span>
+                <span>旅行目的地</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-line" style="background:#e67e22;"></span>
+                <span>去程航线</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-line" style="background:#2980b9;border-top:2px dashed #2980b9;height:0;"></span>
+                <span>返程航线</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-line" style="background:#27ae60;"></span>
+                <span>境内移动</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 旅行记录列表 ===== -->
+    <section class="travel-section" id="travel-list">
+        <div class="section-title">
+            <h2>旅 行 记 录</h2>
+            <p>每一段旅程，都是独一无二的故事</p>
+        </div>
+
+        <div class="travel-grid">
+            <!-- 阿联酋之旅 -->
+            <a href="uae-2024.html" class="travel-card">
+                <div class="card-image">
+                    <span>🇦🇪</span>
+                    <span class="card-date">2024.12</span>
+                </div>
+                <div class="card-body">
+                    <h3>阿联酋之旅</h3>
+                    <p>第一次走出国门，从卡塔尔中转到阿布扎比参加ICDM顶会，在迪拜的沙漠与高楼间，体验了一场充满惊喜的旅程。</p>
+                    <div class="card-tags">
+                        <span>阿布扎比</span>
+                        <span>迪拜</span>
+                        <span>学术会议</span>
+                        <span>沙漠</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 占位卡片：未来旅行 -->
+            <div class="travel-card" style="opacity:0.6;cursor:default;">
+                <div class="card-image" style="background:linear-gradient(135deg,#ccc,#aaa);">
+                    <span>✨</span>
+                </div>
+                <div class="card-body">
+                    <h3>下一段旅程</h3>
+                    <p>敬请期待……世界那么大，还有很多地方想去看看。</p>
+                    <div class="card-tags">
+                        <span>待定</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 关于 ===== -->
+    <section class="travel-section" id="about" style="padding-top:0;">
+        <div class="section-title">
+            <h2>关 于 这 个 网 站</h2>
+        </div>
+        <div style="max-width:600px;margin:0 auto;text-align:center;color:#666;line-height:2;">
+            <p>这是一个用代码搭建的个人旅行博客，记录每一次出发的故事。</p>
+            <p>地图上的每一个光点，都是我走过的地方；每一条航线，都连接着一段难忘的回忆。</p>
+            <p style="margin-top:1rem;color:#d4a853;">「 世界那么大，我想去看看 」</p>
+        </div>
+    </section>
+
+    <!-- ===== 页脚 ===== -->
+    <footer class="footer">
+        <p>© 2024 我的旅行日记 · 用脚步丈量地球，用文字记录时光</p>
+        <p style="margin-top:0.5rem;">Powered by GitHub Pages & Leaflet.js</p>
+    </footer>
+
+    <!-- 自定义脚本 -->
+    <script src="js/main.js"></script>
+</body>
+</html>
