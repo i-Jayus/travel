@@ -57,7 +57,7 @@ const locations = [
         lng: 104.0668,
         type: 'transit',
         description: '四川航空经停站',
-        date: '2025.05'
+        date: '2025.04'
     },
     {
         id: 'sydney',
@@ -67,7 +67,7 @@ const locations = [
         lng: 151.2093,
         type: 'destination',
         description: '澳大利亚最大城市，歌剧院与海港大桥',
-        date: '2025.05',
+        date: '2025.04',
         link: 'australia-2025.html'
     },
     {
@@ -78,7 +78,7 @@ const locations = [
         lng: 153.4000,
         type: 'destination',
         description: '冲浪者天堂与可伦宾动物园',
-        date: '2025.05',
+        date: '2025.04',
         link: 'australia-2025.html'
     },
     {
