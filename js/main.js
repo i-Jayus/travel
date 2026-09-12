@@ -317,12 +317,27 @@ function initMap() {
         attributionControl: true
     });
 
-    // 添加底图（使用 OpenStreetMap 标准底图，免费稳定，无需 API Key）
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    // 添加底图：主用高德（国内访问快、中文标注、无需 Key），瓦片连续加载失败时回退到 OSM 法国镜像
+    var gaodeLayer = L.tileLayer('https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}', {
+        subdomains: '1234',
+        maxZoom: 18,
+        attribution: '&copy; 高德地图'
+    });
+    var osmFallbackLayer = L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
         subdomains: 'abc',
-        maxZoom: 19
-    }).addTo(map);
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap France contributors'
+    });
+    gaodeLayer.addTo(map);
+    // 高德瓦片若连续加载失败（例如境外网络环境），自动切换到 OSM 镜像，保证底图始终可用
+    var __tileFailCount = 0;
+    gaodeLayer.on('tileerror', function () {
+        __tileFailCount++;
+        if (__tileFailCount > 6 && map.hasLayer(gaodeLayer)) {
+            map.removeLayer(gaodeLayer);
+            osmFallbackLayer.addTo(map);
+        }
+    });
 
     // 绘制航线
     drawRoutes();
