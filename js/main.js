@@ -80,6 +80,92 @@ const locations = [
         description: '冲浪者天堂与可伦宾动物园',
         date: '2025.05',
         link: 'australia-2025.html'
+    },
+    {
+        id: 'guangzhou',
+        name: '广州',
+        nameEn: 'Guangzhou',
+        lat: 23.1291,
+        lng: 113.2644,
+        type: 'origin',
+        description: '格鲁吉亚之旅出发地',
+        date: '2025.09'
+    },
+    {
+        id: 'tbilisi',
+        name: '第比利斯',
+        nameEn: 'Tbilisi',
+        lat: 41.7151,
+        lng: 44.8271,
+        type: 'destination',
+        description: '格鲁吉亚首都，红酒发源地，老城与硫磺浴',
+        date: '2025.09',
+        link: 'georgia-2025.html'
+    },
+    {
+        id: 'sighnaghi',
+        name: '西格纳吉',
+        nameEn: 'Sighnaghi',
+        lat: 41.6200,
+        lng: 45.9200,
+        type: 'destination',
+        description: '童话般的酿酒爱情小镇',
+        date: '2025.09',
+        link: 'georgia-2025.html'
+    },
+    {
+        id: 'kazbegi',
+        name: '卡兹别克',
+        nameEn: 'Kazbegi',
+        lat: 42.6580,
+        lng: 44.6400,
+        type: 'destination',
+        description: '雪山脚下，圣三一教堂与日照金山',
+        date: '2025.09',
+        link: 'georgia-2025.html'
+    },
+    {
+        id: 'kutaisi',
+        name: '库塔伊西',
+        nameEn: 'Kutaisi',
+        lat: 42.2500,
+        lng: 42.7000,
+        type: 'destination',
+        description: '格鲁吉亚旧都',
+        date: '2025.09',
+        link: 'georgia-2025.html'
+    },
+    {
+        id: 'mestia',
+        name: '梅斯蒂亚',
+        nameEn: 'Mestia',
+        lat: 43.0400,
+        lng: 42.7200,
+        type: 'destination',
+        description: '高加索山区徒步胜地，木屋与围炉',
+        date: '2025.09',
+        link: 'georgia-2025.html'
+    },
+    {
+        id: 'ushguli',
+        name: '乌什古里',
+        nameEn: 'Ushguli',
+        lat: 42.9167,
+        lng: 43.0000,
+        type: 'destination',
+        description: '欧洲海拔最高的古村落，冰川徒步',
+        date: '2025.09',
+        link: 'georgia-2025.html'
+    },
+    {
+        id: 'almaty',
+        name: '阿拉木图',
+        nameEn: 'Almaty',
+        lat: 43.2220,
+        lng: 76.8512,
+        type: 'transit',
+        description: '哈萨克斯坦，返程中转停留一天',
+        date: '2025.09'
     }
 ];
 
@@ -148,6 +234,62 @@ const routes = [
         to: 'shenzhen',
         type: 'return',
         description: '悉尼 → 深圳（返程）'
+    },
+    {
+        id: 'outbound-5',
+        from: 'guangzhou',
+        to: 'tbilisi',
+        type: 'outbound',
+        description: '广州 → 第比利斯（去程）'
+    },
+    {
+        id: 'domestic-3',
+        from: 'tbilisi',
+        to: 'sighnaghi',
+        type: 'domestic',
+        description: '第比利斯 → 西格纳吉（境内）'
+    },
+    {
+        id: 'domestic-4',
+        from: 'sighnaghi',
+        to: 'kazbegi',
+        type: 'domestic',
+        description: '西格纳吉 → 卡兹别克（境内）'
+    },
+    {
+        id: 'domestic-5',
+        from: 'tbilisi',
+        to: 'kutaisi',
+        type: 'domestic',
+        description: '第比利斯 → 库塔伊西（境内）'
+    },
+    {
+        id: 'domestic-6',
+        from: 'kutaisi',
+        to: 'mestia',
+        type: 'domestic',
+        description: '库塔伊西 → 梅斯蒂亚（境内）'
+    },
+    {
+        id: 'domestic-7',
+        from: 'mestia',
+        to: 'ushguli',
+        type: 'domestic',
+        description: '梅斯蒂亚 → 乌什古里（徒步）'
+    },
+    {
+        id: 'return-4',
+        from: 'tbilisi',
+        to: 'almaty',
+        type: 'return',
+        description: '第比利斯 → 阿拉木图（返程）'
+    },
+    {
+        id: 'return-5',
+        from: 'almaty',
+        to: 'guangzhou',
+        type: 'return',
+        description: '阿拉木图 → 广州（返程）'
     }
 ];
 
