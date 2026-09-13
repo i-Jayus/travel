@@ -6,9 +6,9 @@
     <title>我的旅行日记 | Travel Journal</title>
     <meta name="description" content="记录每一次旅行的足迹与故事">
 
-    <!-- Leaflet 地图库 -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Leaflet 地图库（本地托管，避免依赖国外 CDN 导致微信内加载失败） -->
+    <link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
+    <script src="vendor/leaflet/leaflet.js"></script>
 
     <!-- 自定义样式 -->
     <link rel="stylesheet" href="css/style.css">
@@ -165,6 +165,6 @@
     </footer>
 
     <!-- 自定义脚本 -->
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=2"></script>
 </body>
 </html>
