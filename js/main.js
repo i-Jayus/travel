@@ -448,24 +448,56 @@ function addMarkers() {
 document.addEventListener('DOMContentLoaded', function () {
     const mapElement = document.getElementById('world-map');
     if (mapElement) {
-        initMap();
-        // 首次加载时全屏容器(100vh)尺寸可能尚未计算就绪，
-        // 导致地图空白、需要滑动/缩放后才显示。这里强制重算地图尺寸。
-        function refreshMap() {
+        // 部分移动端内核（如微信 X5）对 CSS 100vh 的尺寸计算会延迟很久，
+        // 导致 Leaflet 初始化时容器高度为 0、地图空白，滑动/缩放后才显示。
+        // 这里直接用 JS 设置容器高度（基于可见视口高度），彻底绕开 vh 兼容问题。
+        function syncMapHeight() {
+            if (!mapElement) return;
+            var vh = window.innerHeight || document.documentElement.clientHeight || 600;
+            mapElement.style.height = vh + 'px';
             if (typeof map !== 'undefined' && map) {
                 map.invalidateSize();
             }
         }
-        setTimeout(refreshMap, 50);
-        setTimeout(refreshMap, 300);
+        syncMapHeight();
+        window.addEventListener('resize', syncMapHeight);
+        window.addEventListener('orientationchange', function () {
+            setTimeout(syncMapHeight, 300);
+        });
+
+        initMap();
+
+        // 轮询等待容器真正有尺寸后再重算地图（不依赖 ResizeObserver，兼容老内核）。
+        // 微信等环境里容器尺寸可能在初始化后很久才就绪。
+        var pollTimes = 0;
+        var pollTimer = setInterval(function () {
+            pollTimes++;
+            if (mapElement.clientHeight > 0 && mapElement.clientWidth > 0) {
+                if (typeof map !== 'undefined' && map) {
+                    map.invalidateSize();
+                }
+            }
+            if (pollTimes >= 15) { // 最多轮询约 3 秒
+                clearInterval(pollTimer);
+            }
+        }, 200);
+
         // 所有资源加载完再兜底一次
         window.addEventListener('load', function () {
-            setTimeout(refreshMap, 0);
+            setTimeout(syncMapHeight, 0);
+            setTimeout(function () {
+                if (typeof map !== 'undefined' && map) {
+                    map.invalidateSize();
+                }
+            }, 100);
         });
-        // 容器尺寸后续变化（如移动端地址栏收起）时自动同步
+
+        // 容器尺寸后续变化时自动同步
         if (window.ResizeObserver) {
-            const ro = new ResizeObserver(function () {
-                refreshMap();
+            var ro = new ResizeObserver(function () {
+                if (typeof map !== 'undefined' && map) {
+                    map.invalidateSize();
+                }
             });
             ro.observe(mapElement);
         }
