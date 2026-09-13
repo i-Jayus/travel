@@ -92,6 +92,16 @@ const locations = [
         date: '2025.09'
     },
     {
+        id: 'kuwait',
+        name: '科威特',
+        nameEn: 'Kuwait City',
+        lat: 29.3759,
+        lng: 47.9774,
+        type: 'transit',
+        description: '科威特城，广州→第比利斯中转',
+        date: '2025.09'
+    },
+    {
         id: 'tbilisi',
         name: '第比利斯',
         nameEn: 'Tbilisi',
@@ -238,9 +248,16 @@ const routes = [
     {
         id: 'outbound-5',
         from: 'guangzhou',
+        to: 'kuwait',
+        type: 'outbound',
+        description: '广州 → 科威特（去程中转）'
+    },
+    {
+        id: 'outbound-6',
+        from: 'kuwait',
         to: 'tbilisi',
         type: 'outbound',
-        description: '广州 → 第比利斯（去程）'
+        description: '科威特 → 第比利斯（去程）'
     },
     {
         id: 'domestic-3',
