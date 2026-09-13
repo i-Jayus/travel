@@ -449,5 +449,25 @@ document.addEventListener('DOMContentLoaded', function () {
     const mapElement = document.getElementById('world-map');
     if (mapElement) {
         initMap();
+        // 首次加载时全屏容器(100vh)尺寸可能尚未计算就绪，
+        // 导致地图空白、需要滑动/缩放后才显示。这里强制重算地图尺寸。
+        function refreshMap() {
+            if (typeof map !== 'undefined' && map) {
+                map.invalidateSize();
+            }
+        }
+        setTimeout(refreshMap, 50);
+        setTimeout(refreshMap, 300);
+        // 所有资源加载完再兜底一次
+        window.addEventListener('load', function () {
+            setTimeout(refreshMap, 0);
+        });
+        // 容器尺寸后续变化（如移动端地址栏收起）时自动同步
+        if (window.ResizeObserver) {
+            const ro = new ResizeObserver(function () {
+                refreshMap();
+            });
+            ro.observe(mapElement);
+        }
     }
 });
