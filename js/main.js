@@ -176,6 +176,71 @@ const locations = [
         type: 'transit',
         description: '哈萨克斯坦，返程中转停留一天',
         date: '2025.09'
+    },
+    {
+        id: 'christchurch',
+        name: '基督城',
+        nameEn: 'Christchurch',
+        lat: -43.5321,
+        lng: 172.6362,
+        type: 'destination',
+        description: '南岛门户，植物园与英伦风情',
+        date: '2026.02',
+        link: 'new-zealand-2026.html'
+    },
+    {
+        id: 'tekapo',
+        name: '蒂卡波',
+        nameEn: 'Tekapo',
+        lat: -44.0048,
+        lng: 170.4769,
+        type: 'destination',
+        description: '暗夜星空小镇，求婚之地与奶蓝色湖泊',
+        date: '2026.02',
+        link: 'new-zealand-2026.html'
+    },
+    {
+        id: 'queenstown',
+        name: '皇后镇',
+        nameEn: 'Queenstown',
+        lat: -45.0312,
+        lng: 168.6626,
+        type: 'destination',
+        description: '冒险之都，Fergburger 与高山农场',
+        date: '2026.02',
+        link: 'new-zealand-2026.html'
+    },
+    {
+        id: 'milford-sound',
+        name: '米尔福德峡湾',
+        nameEn: 'Milford Sound',
+        lat: -44.6739,
+        lng: 167.9266,
+        type: 'destination',
+        description: '峡湾游船，瀑布与岩壁',
+        date: '2026.02',
+        link: 'new-zealand-2026.html'
+    },
+    {
+        id: 'auckland',
+        name: '奥克兰',
+        nameEn: 'Auckland',
+        lat: -36.8509,
+        lng: 174.7645,
+        type: 'destination',
+        description: '千帆之城，天空塔与德文港',
+        date: '2026.02',
+        link: 'new-zealand-2026.html'
+    },
+    {
+        id: 'beijing',
+        name: '北京',
+        nameEn: 'Beijing',
+        lat: 39.9042,
+        lng: 116.4074,
+        type: 'destination',
+        description: '返程落地，回家过年',
+        date: '2026.02'
     }
 ];
 
@@ -307,6 +372,55 @@ const routes = [
         to: 'guangzhou',
         type: 'return',
         description: '阿拉木图 → 广州（返程）'
+    },
+    {
+        id: 'outbound-7',
+        from: 'shenzhen',
+        to: 'sydney',
+        type: 'outbound',
+        description: '深圳 → 悉尼（去程中转）'
+    },
+    {
+        id: 'outbound-8',
+        from: 'sydney',
+        to: 'christchurch',
+        type: 'outbound',
+        description: '悉尼 → 基督城（去程）'
+    },
+    {
+        id: 'domestic-8',
+        from: 'christchurch',
+        to: 'tekapo',
+        type: 'domestic',
+        description: '基督城 → 蒂卡波（InterCity 巴士）'
+    },
+    {
+        id: 'domestic-9',
+        from: 'tekapo',
+        to: 'queenstown',
+        type: 'domestic',
+        description: '蒂卡波 → 皇后镇（InterCity 巴士）'
+    },
+    {
+        id: 'domestic-10',
+        from: 'queenstown',
+        to: 'milford-sound',
+        type: 'domestic',
+        description: '皇后镇 → 米尔福德峡湾（一日游往返）'
+    },
+    {
+        id: 'domestic-11',
+        from: 'queenstown',
+        to: 'auckland',
+        type: 'domestic',
+        description: '皇后镇 → 奥克兰（国内航班）'
+    },
+    {
+        id: 'return-6',
+        from: 'auckland',
+        to: 'beijing',
+        type: 'return',
+        description: '奥克兰 → 北京（返程）'
     }
 ];
 
