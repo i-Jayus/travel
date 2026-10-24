@@ -241,6 +241,28 @@ const locations = [
         type: 'destination',
         description: '返程落地，回家过年',
         date: '2026.02'
+    },
+    {
+        id: 'kota-kinabalu',
+        name: '亚庇',
+        nameEn: 'Kota Kinabalu',
+        lat: 5.9804,
+        lng: 116.0735,
+        type: 'destination',
+        description: '沙巴首府，玻璃海与丹绒亚路日落',
+        date: '2026.05',
+        link: 'malaysia-2026.html'
+    },
+    {
+        id: 'kuala-lumpur',
+        name: '吉隆坡',
+        nameEn: 'Kuala Lumpur',
+        lat: 3.1390,
+        lng: 101.6869,
+        type: 'destination',
+        description: '双子塔与默迪卡118，榴莲天堂',
+        date: '2026.05',
+        link: 'malaysia-2026.html'
     }
 ];
 
@@ -421,6 +443,27 @@ const routes = [
         to: 'beijing',
         type: 'return',
         description: '奥克兰 → 北京（返程）'
+    },
+    {
+        id: 'outbound-9',
+        from: 'shenzhen',
+        to: 'kota-kinabalu',
+        type: 'outbound',
+        description: '深圳 → 亚庇（去程）'
+    },
+    {
+        id: 'domestic-12',
+        from: 'kota-kinabalu',
+        to: 'kuala-lumpur',
+        type: 'domestic',
+        description: '亚庇 → 吉隆坡（境内航班）'
+    },
+    {
+        id: 'return-7',
+        from: 'kuala-lumpur',
+        to: 'shenzhen',
+        type: 'return',
+        description: '吉隆坡 → 深圳（返程）'
     }
 ];
 
